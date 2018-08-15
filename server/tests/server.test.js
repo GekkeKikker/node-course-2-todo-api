@@ -85,10 +85,10 @@ describe('POST /todos', () => {
 
     it('should return 404 if todo not found', (done) => {
       //make sure you get a 404 back
-      var id = new ObjectID;
+      var hexId = new ObjectID.toHexString();
 
       request(app)
-        .get(`/todos/${id.toHexString()}`)
+        .get('/todos/${hexId}')
         .expect(404)
         .end(done);
     });
